@@ -15,8 +15,8 @@ const DateGrades: FC<{ date: Date; grades: GradeSchema[] }> = ({
         {format(date, 'd MMM yyyy')}
       </h4>
       <div className="flex flex-wrap gap-0.5">
-        {grades.map((grade) => (
-          <Grade grade={grade} />
+        {grades.map((grade, i) => (
+          <Grade key={i} grade={grade} />
         ))}
       </div>
     </div>
