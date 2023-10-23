@@ -10,7 +10,7 @@ const DashboardLayout: FC<{ children: ReactNode }> = ({ children }) => {
           <Navbar />
         </div>
       </div>
-      <main className="container flex grow flex-col px-4 py-12 lg:py-16">
+      <main className="container flex min-h-0 flex-[1] flex-col px-4 py-12 lg:py-16">
         {children}
       </main>
     </>

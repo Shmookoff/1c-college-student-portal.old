@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { Button } from '@/components/ui/button';
+import StartButton from './components/start-button';
 
 const HomePage: FC = () => {
   return (
-    <div className="flex grow  flex-col items-center justify-center gap-4">
+    <div className="flex h-screen flex-col items-center justify-center gap-4">
       <div className="flex flex-col gap-2 text-center">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
           Студенческий портал
@@ -15,7 +15,7 @@ const HomePage: FC = () => {
         </div>
       </div>
       <Link href="/dashboard">
-        <Button>Перейти на портал</Button>
+        <StartButton />
       </Link>
     </div>
   );

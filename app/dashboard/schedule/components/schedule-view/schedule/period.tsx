@@ -11,8 +11,10 @@ const Period: FC<{
   classes: Map<number, ClassSchema>;
 }> = ({ classNumber, classes }) => {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="text-muted-foreground">{classNumber} урок</div>
+    <div className="relative flex flex-col gap-2">
+      <div className="sticky top-0 bg-background text-muted-foreground">
+        {classNumber} урок
+      </div>
       <div className="flex flex-wrap gap-4">
         {[...classes]
           .toSorted(([a], [b]) => a - b)

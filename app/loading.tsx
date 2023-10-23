@@ -1,10 +1,10 @@
 const RootLoading = () => {
   return (
-    <div className="flex grow items-center justify-center">
+    <div className="flex h-screen items-center justify-center">
       <div role="status">
         <svg
           aria-hidden="true"
-          className="h-8 w-8 animate-spin fill-muted text-gray-200 dark:text-gray-600"
+          className="h-8 w-8 animate-spin fill-muted text-primary/50"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

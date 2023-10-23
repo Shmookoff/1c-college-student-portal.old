@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { studentPortalApi } from '@/server/1c';
 import { Fetch1CError } from '@/server/1c/error-schema';
 
+export const dynamic = 'force-dynamic';
+
 export const GET = async (
   request: NextRequest,
   { params }: { params: { groupId: string; date: string } }

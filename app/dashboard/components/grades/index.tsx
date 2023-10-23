@@ -1,5 +1,6 @@
+import { MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { FC, Suspense } from 'react';
+import React, { FC } from 'react';
 
 import {
   Card,
@@ -9,28 +10,32 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-import GradesList, {
-  GradesListLoading,
-  getDefaultPeriod,
-} from '../../grades/components/grades/list';
+import { getDefaultOptions } from '../../grades/components/grades-view';
+import Grades from '../../grades/components/grades-view/grades';
 
-const Grades: FC = () => {
-  const period = getDefaultPeriod();
+const GradesWidget: FC = async () => {
+  const options = await getDefaultOptions();
   return (
-    <Card>
+    <Card className="flex max-h-full flex-col">
       <CardHeader>
-        <CardTitle className="underline underline-offset-4">
-          <Link href="/dashboard/grades">Оценки</Link>
+        <CardTitle>
+          <Link
+            href="/dashboard/grades"
+            className="transition hover:text-primary"
+          >
+            Оценки <MoveUpRight className="inline-block h-5 w-5" />
+          </Link>
         </CardTitle>
         <CardDescription>За неделю</CardDescription>
       </CardHeader>
-      <CardContent>
-        <Suspense fallback={<GradesListLoading />}>
-          <GradesList {...period} />
-        </Suspense>
+      <CardContent className="flex min-h-0 flex-[1] flex-col">
+        <Grades
+          options={options.range}
+          className="min-h-0 flex-[1] overflow-auto"
+        />
       </CardContent>
     </Card>
   );
 };
 
-export default Grades;
+export default GradesWidget;

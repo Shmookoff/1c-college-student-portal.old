@@ -1,7 +1,7 @@
 'use client';
 
 import { Cloud } from 'lucide-react';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { Separator } from '@/components/ui/separator';
 import {
@@ -61,22 +61,22 @@ const Class: FC<{ data: ClassSchema }> = ({ data }) => {
 
 export const ClassLoading: FC = () => {
   return (
-    <div className="flex grow flex-col gap-2 whitespace-pre">
+    <div className="flex grow flex-col gap-2">
       <div className="flex items-center gap-2 text-lg font-medium">
-        <span className="animate-pulse rounded-md bg-muted-foreground">
+        <span className="animate-pulse whitespace-pre rounded-md bg-muted-foreground">
           {' '.repeat(32)}
         </span>
       </div>
       <div className="flex flex-wrap items-center gap-x-2 text-sm">
-        <span className="animate-pulse rounded-md bg-muted">
+        <span className="animate-pulse whitespace-pre rounded-md bg-muted">
           {' '.repeat(32)}
         </span>
         <Separator orientation="vertical" className="h-4 animate-pulse" />
-        <span className="animate-pulse rounded-md bg-muted">
+        <span className="animate-pulse whitespace-pre rounded-md bg-muted">
           {' '.repeat(24)}
         </span>
         <Separator orientation="vertical" className="h-4 animate-pulse" />
-        <span className="animate-pulse rounded-md bg-muted">
+        <span className="animate-pulse whitespace-pre rounded-md bg-muted">
           {' '.repeat(24)}
         </span>
       </div>

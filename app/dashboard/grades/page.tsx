@@ -1,16 +1,16 @@
 import { FC } from 'react';
 
-import Grades from './components/grades';
+import GradesView from './components/grades-view';
 
-const GradesPage: FC<{ searchParams?: { start?: string; end?: string } }> = ({
+const GradesPage: FC<{ searchParams?: { from?: string; to?: string } }> = ({
   searchParams,
 }) => {
   return (
-    <div className="flex grow flex-col gap-8">
-      <h1 className="flex h-fit w-fit items-center whitespace-pre border-b pb-1 text-2xl font-semibold tracking-tight lg:text-3xl">
+    <div className="flex h-full flex-col gap-8">
+      <h1 className="flex w-fit items-center whitespace-pre border-b pb-1 text-2xl font-semibold tracking-tight lg:text-3xl">
         Оценки
       </h1>
-      <Grades {...searchParams} />
+      <GradesView {...searchParams} />
     </div>
   );
 };

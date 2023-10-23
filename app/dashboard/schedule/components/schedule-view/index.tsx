@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import { studentPortalApi } from '@/server/1c';
 
-import ScheduleOnClient from './client';
+import ScheduleViewOnClient from './client';
 
 export const getDefaultOptions = async () => {
   const user = await studentPortalApi.students.me.read();
@@ -32,7 +32,7 @@ const ScheduleView: FC<{ groupId?: string; date?: string }> = async (
   searchParams
 ) => {
   const defaultOptions = await getOptions(searchParams);
-  return <ScheduleOnClient defaultOptions={defaultOptions} />;
+  return <ScheduleViewOnClient defaultOptions={defaultOptions} />;
 };
 
 export default ScheduleView;

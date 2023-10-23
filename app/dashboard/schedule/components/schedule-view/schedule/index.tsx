@@ -1,8 +1,9 @@
 'use client';
 
-import { type FC } from 'react';
+import React, { type FC } from 'react';
 
 import { useScheduleByGroupForDate } from '@/lib/hooks/api/use-schedule';
+import { cn } from '@/lib/utils';
 
 import type {
   ClassSchema,
@@ -11,7 +12,9 @@ import type {
 
 import Period, { PeriodLoading } from './period';
 
-const Schedule: FC<{ groupId: string; date: Date }> = ({ groupId, date }) => {
+const Schedule: FC<
+  { groupId: string; date: Date } & React.HTMLAttributes<HTMLDivElement>
+> = ({ groupId, date, className }) => {
   const { data: schedule, isLoading } = useScheduleByGroupForDate(
     groupId,
     date
@@ -31,15 +34,21 @@ const Schedule: FC<{ groupId: string; date: Date }> = ({ groupId, date }) => {
     }, new Map<number, Map<number, ClassSchema>>());
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className={cn('flex flex-col gap-y-4', className)}>
       {schedule ? (
-        [...scheduleToPeriods(schedule)].map(([classNumber, classes]) => (
-          <Period
-            key={classNumber}
-            classNumber={classNumber}
-            classes={classes}
-          />
-        ))
+        schedule.length ? (
+          [...scheduleToPeriods(schedule)].map(([classNumber, classes]) => (
+            <Period
+              key={classNumber}
+              classNumber={classNumber}
+              classes={classes}
+            />
+          ))
+        ) : (
+          <div className="p-4 text-center text-sm text-muted-foreground">
+            Данные отсутствуют...
+          </div>
+        )
       ) : isLoading ? (
         <ScheduleLoading />
       ) : null}

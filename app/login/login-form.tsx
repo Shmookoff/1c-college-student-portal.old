@@ -50,10 +50,11 @@ const LoginForm: FC = () => {
       body: JSON.stringify(values),
       method: 'POST',
     });
-    setIsLoading(false);
     if (response.ok) {
-      router.push('/dashboard');
+      setIsLoading(false);
+      window.location.href = '/dashboard';
     }
+    setIsLoading(false);
   }
 
   return (
