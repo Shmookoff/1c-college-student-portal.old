@@ -8,7 +8,7 @@ import ScheduleViewOnClient from './client';
 
 export const getDefaultOptions = async () => {
   const user = await studentPortalApi.students.me.read();
-  const date = new Date('2012-12-12');
+  const date = new Date('2023-10-09');
   return {
     groupId: user.group_id,
     date: date,
