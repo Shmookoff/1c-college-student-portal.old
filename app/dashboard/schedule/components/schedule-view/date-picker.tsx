@@ -1,6 +1,7 @@
 'use client';
 
 import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { FC } from 'react';
 
@@ -38,6 +39,7 @@ const ScheduleDatePicker: FC<{
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
           <Calendar
+            locale={ru}
             mode="single"
             selected={value}
             onSelect={(value) => value && setValue(value)}

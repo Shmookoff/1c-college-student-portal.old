@@ -1,6 +1,7 @@
 'use client';
 
 import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import { CalendarIcon } from 'lucide-react';
 import { FC } from 'react';
 import { DateRange } from 'react-day-picker';
@@ -50,6 +51,7 @@ const RangePicker: FC<{
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
+            locale={ru}
             initialFocus
             mode="range"
             defaultMonth={value?.from}
