@@ -16,6 +16,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import { studentPortalApi } from '@/server/1c';
 
+import Logout from './logout';
+
 const UserMenu: FC = async () => {
   const student = await studentPortalApi.students.me.read();
   const group = await studentPortalApi.groups.read(student.group_id);
@@ -44,17 +46,7 @@ const UserMenu: FC = async () => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
-            <span>Профиль</span>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Выйти</span>
-        </DropdownMenuItem>
+        <Logout />
       </DropdownMenuContent>
     </DropdownMenu>
   );
