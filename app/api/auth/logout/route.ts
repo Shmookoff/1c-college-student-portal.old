@@ -7,10 +7,8 @@ import { Fetch1CError } from '@/server/1c/error-schema';
 export const POST = async () => {
   try {
     const refreshToken = cookies().get('RefreshToken');
-    console.log({ refreshToken });
     if (refreshToken) {
       await studentPortalApi.auth.logout(refreshToken.value);
-      console.log({ refreshToken });
       cookies().delete('AccessToken');
       cookies().delete('RefreshToken');
     }
@@ -18,6 +16,7 @@ export const POST = async () => {
   } catch (error) {
     if (error instanceof Fetch1CError)
       return NextResponse.json(error.text, { status: error.response.status });
-    console.log(error);
+    console.error(error);
+    return NextResponse.json('Internal Server Error', { status: 500 });
   }
 };

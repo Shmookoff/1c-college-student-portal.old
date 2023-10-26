@@ -16,5 +16,7 @@ export const POST = async (request: NextRequest) => {
   } catch (error) {
     if (error instanceof Fetch1CError)
       return NextResponse.json(error.text, { status: error.response.status });
+    console.error(error);
+    return NextResponse.json('Internal Server Error', { status: 500 });
   }
 };
