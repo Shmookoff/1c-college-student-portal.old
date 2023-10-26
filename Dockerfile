@@ -6,14 +6,9 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# Install dependencies
+COPY package.json pnpm-lock.yaml .npmrc ./
+RUN yarn global add pnpm && pnpm i --frozen-lockfile
 
 
 # Rebuild the source code only when needed
@@ -27,7 +22,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+RUN --mount=type=secret,id=S1C_HOST --mount=type=secret,id=S1C_USERNAME --mount=type=secret,id=S1C_PASSWORD ./next-build.sh
 
 # If using npm comment out above and use below instead
 # RUN npm run build

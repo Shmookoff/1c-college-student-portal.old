@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: shmookoff/1c-college-student-portal:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - S1C_HOST
+      # - S1C_HOST=http://s1c.host/${S1C_HS}
+      - S1C_USERNAME
+      - S1C_PASSWORD
+    # extra_hosts:
+    #   - "s1c.host:${S1C_IP}"
+    # network_mode: "host"
