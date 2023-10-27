@@ -5,7 +5,7 @@ import { FC } from 'react';
 import GradesViewOnClient from './client';
 
 export const getDefaultOptions = async () => {
-  const to = new Date('2023-10-06');
+  const to = new Date();
   const from = subDays(to, 7);
   return { range: { from, to } };
 };
