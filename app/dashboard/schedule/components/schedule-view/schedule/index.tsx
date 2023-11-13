@@ -34,7 +34,7 @@ const Schedule: FC<
     }, new Map<number, Map<number, ClassSchema>>());
 
   return (
-    <div className={cn('flex flex-col gap-y-4', className)}>
+    <div className={cn('flex flex-col gap-y-6', className)}>
       {schedule ? (
         schedule.length ? (
           [...scheduleToPeriods(schedule)].map(([classNumber, classes]) => (
