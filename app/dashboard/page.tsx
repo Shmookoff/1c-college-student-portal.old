@@ -1,7 +1,7 @@
+import { Book, CalendarDays } from 'lucide-react';
 import { FC, Suspense } from 'react';
 
-import GradesWidget from './components/grades';
-import ScheduleWidget from './components/schedule';
+import FeatureCard from './components/feature-card';
 import StudentGreet, { StudentGreetLoading } from './components/student-greet';
 
 const DashboardPage: FC = async () => {
@@ -13,12 +13,15 @@ const DashboardPage: FC = async () => {
           <StudentGreet />
         </Suspense>
       </h1>
-      <div className="grid min-h-0 flex-[1] gap-x-16 gap-y-8 lg:max-h-[32rem] lg:grid-cols-8">
-        <div className="min-h-0 lg:col-span-5">
-          <ScheduleWidget />
-        </div>
-        <div className="min-h-0 lg:col-span-3">
-          <GradesWidget />
+
+      <div className="grid min-h-0 flex-[1] gap-x-8 gap-y-8">
+        <div className="grid auto-cols-fr auto-rows-[128px] gap-8">
+          <FeatureCard
+            icon={CalendarDays}
+            text="Расписание"
+            href="/dashboard/schedule"
+          />
+          <FeatureCard icon={Book} text="Оценки" href="/dashboard/grades" />
         </div>
       </div>
     </div>
