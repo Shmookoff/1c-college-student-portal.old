@@ -22,11 +22,11 @@ const UserMenuOnClient: FC<{
   student: StudentsMeReadResponseBody;
   group: GroupsReadResponseBody;
 }> = ({ student, group }) => {
-  const { reportBullying, reportBullyingDialog } = useReportBullying();
+  // const { reportBullying, reportBullyingDialog } = useReportBullying();
 
   return (
     <>
-      {reportBullyingDialog}
+      {/* {reportBullyingDialog} */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -50,7 +50,7 @@ const UserMenuOnClient: FC<{
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {reportBullying}
+          {/* {reportBullying} */}
           <DropdownMenuSeparator />
           <Logout />
         </DropdownMenuContent>
