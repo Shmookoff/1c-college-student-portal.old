@@ -32,9 +32,14 @@ const Grades: FC<
     <div className={cn('flex flex-col gap-4', className)}>
       {grades ? (
         grades.length ? (
-          [...gradesByDate(grades)].map(([date, grades]) => (
-            <DateGrades key={date} date={new Date(date)} grades={grades} />
-          ))
+          [...gradesByDate(grades)]
+            .toSorted(
+              ([aDate], [bDate]) =>
+                new Date(aDate).valueOf() - new Date(bDate).valueOf()
+            )
+            .map(([date, grades]) => (
+              <DateGrades key={date} date={new Date(date)} grades={grades} />
+            ))
         ) : (
           <div className="p-4 text-center text-sm text-muted-foreground">
             Данные отсутствуют...
