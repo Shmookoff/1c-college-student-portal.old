@@ -29,12 +29,7 @@ const Class: FC<{ data: ClassSchema }> = ({ data }) => {
   return (
     <div className="grow">
       <div className="flex items-center gap-2 whitespace-pre text-lg font-medium">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span>{data.discipline_name}</span>
-          </TooltipTrigger>
-          <TooltipContent>{data.full_discipline_name}</TooltipContent>
-        </Tooltip>
+        <span>{data.full_discipline_name}</span>
         {data.is_distanced && (
           <Tooltip>
             <TooltipTrigger asChild>

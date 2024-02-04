@@ -32,14 +32,7 @@ const Grade: FC<{ grade: GradeSchema }> = ({ grade }) => {
   const { text, className } = markRepr(grade);
   return (
     <div className="flex w-full justify-between gap-2">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <div className="font-semibold">{grade.discipline_name}</div>
-        </TooltipTrigger>
-        <TooltipContent>
-          <div>{grade.full_discipline_name}</div>
-        </TooltipContent>
-      </Tooltip>
+      <div className="font-semibold">{grade.full_discipline_name}</div>
       <div className={className}>{text}</div>
     </div>
   );
