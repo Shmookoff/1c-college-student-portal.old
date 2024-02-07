@@ -27,9 +27,11 @@ const TeacherName: FC<{ name: string }> = ({ name }) => {
 
 const Class: FC<{ data: ClassSchema }> = ({ data }) => {
   return (
-    <div className="grow">
+    <div className="max-w-full grow">
       <div className="flex items-center gap-2 whitespace-pre text-lg font-medium">
-        <span>{data.full_discipline_name}</span>
+        <span className="text-wrap min-w-0 break-words">
+          {data.full_discipline_name}
+        </span>
         {data.is_distanced && (
           <Tooltip>
             <TooltipTrigger asChild>

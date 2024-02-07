@@ -29,7 +29,7 @@ const Grades: FC<
     }, new Map<string, GradeSchema[]>());
 
   return (
-    <div className={cn('flex flex-col gap-4', className)}>
+    <div className={cn('flex flex-col gap-4 pr-5', className)}>
       {grades ? (
         grades.length ? (
           [...gradesByDate(grades)]

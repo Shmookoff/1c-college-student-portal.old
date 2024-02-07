@@ -41,9 +41,9 @@ const ScheduleViewOnClient: FC<{
           </div>
         </CardContent>
       </Card>
-      <div className="min-h-0 lg:col-span-8">
+      <div className="min-h-0 min-w-0 lg:col-span-8">
         <Schedule
-          className="h-full overflow-auto"
+          className="h-full overflow-auto pr-5"
           groupId={groupId}
           date={date}
         />

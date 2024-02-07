@@ -32,7 +32,9 @@ const Grade: FC<{ grade: GradeSchema }> = ({ grade }) => {
   const { text, className } = markRepr(grade);
   return (
     <div className="flex w-full justify-between gap-2">
-      <div className="font-semibold">{grade.full_discipline_name}</div>
+      <div className="text-wrap min-w-0 break-words font-semibold">
+        {grade.full_discipline_name}
+      </div>
       <div className={className}>{text}</div>
     </div>
   );
